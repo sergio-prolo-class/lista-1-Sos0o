@@ -34,3 +34,9 @@ application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
 }
+
+run{
+    run {
+        args = project.hasProperty('args') ? project.args.split(',') : []
+    }
+}

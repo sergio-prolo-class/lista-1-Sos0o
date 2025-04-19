@@ -4,11 +4,59 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        String arg = args[0];
+        System.out.println(arg);
+
+      //triangulo
+      int altura = 5;
+       for (int i = 1; i <= altura; i++) {
+           for (int j = 1; j <= i; j++) {
+               System.out.print("*");
+           }
+           System.out.println();
+       }
+
+      //losango
+       int losangoAltura = 5;
+       //parte superior
+        for (int i = 1; i <= altura / 2 + 1; i++) {
+            for (int j = i; j <= altura / 2; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        // Parte inferior
+        for (int i = altura / 2; i >= 1; i--) {
+            // Espaços à esquerda
+            for (int j = altura / 2; j >= i; j--) {
+                System.out.print(" ");
+            }
+            // Asteriscos
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+        }
+
+        //Quadrado
+        int Quadradolargura = 8;
+        int Quadradoaltura = 5;
+
+            for (int i = 0; i < altura; i++) {
+                for (int j = 0; j < Quadradoaltura; j++) {
+                    if (i == 0 || i == altura - 1 || j == 0 || j == Quadradoaltura - 1) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
+            }
+        }
     }
-}

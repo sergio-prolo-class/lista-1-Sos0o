@@ -4,11 +4,22 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+    public void main(String args[]){
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        String input = args[0];
+
+        String[] cores = input.split(" ");
+
+        double faixa1 = Resistor.faixa(cores[0]);
+        double faixa2 = Resistor.faixa(cores[1]);
+        double multiplicador = Resistor.multiplicador(cores[2]);
+        double tolerancia = Resistor.tolerancia(cores[3]);
+
+        if(faixa1 != 999 && faixa2 != 999 && multiplicador != 999 && tolerancia != 999){
+            
+        } else {
+            System.out.println("Voce deve passar as cores validas correspondentes separadas por espaço ");
+        }
+
     }
 }

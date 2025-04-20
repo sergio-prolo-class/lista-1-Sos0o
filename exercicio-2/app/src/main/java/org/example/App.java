@@ -4,19 +4,41 @@
 package org.example;
 
 public class App {
-    public void main(String args[]){
+    public static void main(String[] args){
+        double faixa1;
+        double faixa2;
+        double multiplicador;
+        double tolerancia;
 
-        String input = args[0];
-
-        String[] cores = input.split(" ");
-
-        double faixa1 = Resistor.faixa(cores[0]);
-        double faixa2 = Resistor.faixa(cores[1]);
-        double multiplicador = Resistor.multiplicador(cores[2]);
-        double tolerancia = Resistor.tolerancia(cores[3]);
+        if (args.length == 3 ){
+            faixa1 = Resistor.faixa(args[0]);
+            faixa2 = Resistor.faixa(args[1]);
+            multiplicador = Resistor.multiplicador(args[2]);
+            tolerancia = 20;
+        } else {
+            faixa1 = Resistor.faixa(args[0]);
+            faixa2 = Resistor.faixa(args[1]);
+            multiplicador = Resistor.multiplicador(args[2]);
+            tolerancia = Resistor.tolerancia(args[3]);
+        }
 
         if(faixa1 != 999 && faixa2 != 999 && multiplicador != 999 && tolerancia != 999){
-            
+            double ohms = faixa1 * 10;
+            ohms = ohms + faixa2;
+            ohms = ohms * multiplicador;
+
+            int resposta = (int) ohms;
+            int respFaixa1 = (int) faixa1;
+            int respFaixa2 = (int) faixa2;
+
+            if (ohms >= 1000 && ohms < 1000000) {
+                System.out.println("Resistencia: " + respFaixa1 + "," + respFaixa2 + " K Ohms (+- " + tolerancia + "%)" );
+            } else if (ohms >= 1000000 && ohms < 1000000000 ){
+                System.out.println("Resistencia: " + respFaixa1 + "," + respFaixa2 + " M  Ohms (+- " + tolerancia + "%)" );
+            } else if (ohms >= 1000000000) {
+                System.out.println("Resistencia: " + respFaixa1 + "," + respFaixa2 + " G  Ohms (+- " + tolerancia + "%)" );
+            } else System.out.println("Resistencia: " + resposta + " Ohms (+- " + tolerancia + "%)");
+
         } else {
             System.out.println("Voce deve passar as cores validas correspondentes separadas por espaço ");
         }

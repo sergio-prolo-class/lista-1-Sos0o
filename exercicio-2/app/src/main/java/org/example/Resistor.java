@@ -49,7 +49,7 @@ public class Resistor {
             case "azul":
                 return 0.25;
             case "roxo":
-                return 0.1;
+                return 0.10;
             case "cinza":
                 return 0.05;
             case "ouro":

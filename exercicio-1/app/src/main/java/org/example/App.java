@@ -4,53 +4,20 @@
 package org.example;
 
 public class App {
+    
     public static void main(String[] args) {
 
-        String arg = args[0];
-        System.out.println(arg);
+        String formaGeometrica = args[0];
 
-      //triangulo
-      int altura = 5;
-       for (int i = 1; i <= altura; i++) {
-           for (int j = 1; j <= i; j++) {
-               System.out.print("*");
-           }
-           System.out.println();
-       }
+        if (args.length == 3) {
 
-      //losango
-       int losangoAltura = 5;
-       //parte superior
-        for (int i = 1; i <= altura / 2 + 1; i++) {
-            for (int j = i; j <= altura / 2; j++) {
-                System.out.print(" ");
-            }
-            for (int j = 1; j <= (2 * i - 1); j++) {
-                System.out.print("*");
-            }
+            // fazer quadrado9
+            int quadradolargura = Integer.parseInt(args[1]);
+            int quadradoaltura = Integer.parseInt(args[2]);
 
-            System.out.println();
-        }
-
-        // Parte inferior
-        for (int i = altura / 2; i >= 1; i--) {
-            // Espaços à esquerda
-            for (int j = altura / 2; j >= i; j--) {
-                System.out.print(" ");
-            }
-            // Asteriscos
-            for (int j = 1; j <= (2 * i - 1); j++) {
-                System.out.print("*");
-            }
-        }
-
-        //Quadrado
-        int Quadradolargura = 8;
-        int Quadradoaltura = 5;
-
-            for (int i = 0; i < altura; i++) {
-                for (int j = 0; j < Quadradoaltura; j++) {
-                    if (i == 0 || i == altura - 1 || j == 0 || j == Quadradoaltura - 1) {
+            for (int i = 0; i < quadradoaltura; i++) {
+                for (int j = 0; j < quadradoaltura; j++) {
+                    if (i == 0 || i == quadradoaltura - 1 || j == 0 || j == quadradolargura - 1) {
                         System.out.print("*");
                     } else {
                         System.out.print(" ");
@@ -58,5 +25,43 @@ public class App {
                 }
                 System.out.println();
             }
+
+        } else if (args.length > 3 || args.length < 2) {
+            System.out.println("Tamanho do vetor incorreto");
+        } else if (formaGeometrica.equals("triangulo")) {
+            // fazer triangulo
+            int altura = Integer.parseInt(args[1]);
+            for (int i = 1; i <= altura; i++)
+                for (int j = 1; j <= i; j++) {
+                    System.out.print("*");
+                }
+            System.out.println();
+        } else {
+
+            // fazer losango
+            int altura = Integer.parseInt(args[1]);
+            //parte superior
+            for (int i = 1; i <= altura / 2 + 1; i++) {
+                for (int j = i; j <= altura / 2; j++) {
+                    System.out.print(" ");
+                }
+                for (int j = 1; j <= (2 * i - 1); j++) {
+                    System.out.print("*");
+                }
+
+                System.out.println();
+            }
+            // Parte inferior
+            for (int i = altura / 2; i >= 1; i--) {
+                // Espaços à esquerda
+                for (int j = altura / 2; j >= i; j--) {
+                    System.out.print(" ");
+                }
+                // Asteriscos
+                for (int j = 1; j <= (2 * i - 1); j++) {
+                    System.out.print("*");
+                }
+            }
         }
     }
+}

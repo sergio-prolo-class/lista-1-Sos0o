@@ -1,8 +1,9 @@
 package org.example;
 
 public class Resistor {
+     // Método que retorna o valor da primeira ou segunda faixa do resistor com base na cor.
     public static double faixa(String cor){
-        switch (cor) {
+        switch (cor) { // O switch verifica qual cor foi passada e retorna o valor correspondente (de 0 a 9)
             case "preto": return 0;
             case "marrom": return 1;
             case "vermelho": return 2;
@@ -14,11 +15,11 @@ public class Resistor {
             case "cinza": return 8;
             case "branco": return 9;
         }
-        return 999;
+        return 999;  // Se a cor não for válida, retorna 999 (valor usado para indicar erro)
     }
 
-    public static double multiplicador(String cor){
-        switch (cor){
+    public static double multiplicador(String cor){ // Método que retorna o valor do multiplicador com base na cor da terceira faixa
+        switch (cor){  // O switch define o fator multiplicador de acordo com a cor da faixa
             case "preto": return 1;
             case "marrom": return 10;
             case "vermelho": return 100;
@@ -32,12 +33,12 @@ public class Resistor {
             case "ouro": return 0.1;
             case "prata": return 0.01;
         }
-        return 999;
+        return 999; // Se a cor não for válida, retorna 999 (valor usado para indicar erro)
     }
 
-    public static double tolerancia(String cor) {
+    public static double tolerancia(String cor) {  // Método que retorna a tolerância em porcentagem com base na cor da quarta faixa
 
-        switch (cor) {
+        switch (cor) {  // O switch associa a cor a um valor percentual de tolerância
             case "preto":
                 return 0;
             case "marrom":
@@ -61,10 +62,6 @@ public class Resistor {
 
 
         }
-        return 999;
+        return 999; // indicar valor invalido
     }
 }
-
-
-
-

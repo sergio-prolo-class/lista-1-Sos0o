@@ -7,71 +7,72 @@ public class App {
     
     public static void main(String[] args) {
 
-        String formaGeometrica = args[0];
+        String formaGeometrica = args[0]; // Pega o primeiro argumento da linha de comando e guarda o tipo da figura
 
-        if (args.length == 3) {
+        if (args.length == 3) { // Se o número de argumentos for 3, assume que e um retangulo
 
             // fazer retangulo
-            int retangulolargura = Integer.parseInt(args[1]);
-            int retanguloltura = Integer.parseInt(args[2]);
+            int retangulolargura = Integer.parseInt(args[1]); // Converte o segundo argumento para inteiro
+            int retanguloltura = Integer.parseInt(args[2]); // Converte o terceiro argumento para inteiro
 
-            for (int i = 1; i <= retanguloltura; i++) {
+            for (int i = 1; i <= retanguloltura; i++) { // Loop para cada linha do retângulo
 
-                for (int j = 1; j <= retangulolargura; j++) {
-                    if (i == 1 || i == retanguloltura || j == 1 || j == retangulolargura) {
-                        System.out.print("*");
+                for (int j = 1; j <= retangulolargura; j++) { // Loop para cada coluna do retângulo
+                    if (i == 1 || i == retanguloltura || j == 1 || j == retangulolargura) {  // Se estiver na borda do retângulo (primeira/última linha ou primeira/última coluna)
+                        System.out.print("*"); // imprime asterisco
                     } else {
-                        System.out.print(" ");
+                        System.out.print(" "); // caso contrario, imprime espaço
                     }
                 }
-                System.out.println();
+                System.out.println(); // Pula linha depois de imprimir uma linha do retângulo
             }
 
-        } else if (args.length > 3 || args.length < 2) {
-            System.out.println("Tamanho do vetor incorreto");
-        } else if (formaGeometrica.equals("triangulo")) {
+        } else if (args.length > 3 || args.length < 2) { // Verifica se o número de argumentos está incorreto
+            System.out.println("Tamanho do vetor incorreto"); // Exibe mensagem de erro
+        } else if (formaGeometrica.equals("triangulo")) { // Se a forma for triangulo:
 
             // fazer triangulo
-            int altura = Integer.parseInt(args[1]);
+            int altura = Integer.parseInt(args[1]); //Converte o segundo argumento para inteiro, caso altura do triangulo
 
-            for (int i = 1; i <= altura; i++) {
+            for (int i = 1; i <= altura; i++) { // Loop para cada linha
 
-                for (int j = altura; j >= i; j--) {
+                for (int j = altura; j >= i; j--) { // Imprime os espaços à esquerda (pra alinhar em formato de triângulo)
                     System.out.print(" ");
                 }
 
-                for (int j = 1; j <= i; j++) {
+                for (int j = 1; j <= i; j++) { // Imprime os asteriscos do triângulo
                     System.out.print("*");
                 }
 
-                System.out.println();
+                System.out.println(); // Pula para a próxima linha
             }
         }
 
-        else {
+        else { // Se não for triângulo nem retângulo, assume que é losango
 
             // fazer losango
-            int altura = Integer.parseInt(args[1]);
+            int altura = Integer.parseInt(args[1]); // Converte o segundo argumento para inteiro (altura do losango)
 
-            for (int i = 1; i <= altura / 2 + 1; i++) {
 
-                for (int j = i; j <= altura / 2; j++) {
+            for (int i = 1; i <= altura / 2 + 1; i++) { // Parte de cima do losango (inclusive o meio)
+
+                for (int j = i; j <= altura / 2; j++) { // Imprime os espaços à esquerda
                     System.out.print(" ");
                 }
 
-                for (int j = 1; j <= (2 * i - 1); j++) {
+                for (int j = 1; j <= (2 * i - 1); j++) { // Imprime os asteriscos da linha
                     System.out.print("*");
                 }
 
-                System.out.println();
+                System.out.println(); //Pula para a próxima linha
             }
-            for (int i = altura / 2; i >= 1; i--) {
-                // Espaços à esquerda
-                for (int j = altura / 2; j >= i; j--) {
+            for (int i = altura / 2; i >= 1; i--) { // Parte de baixo do losango
+
+                for (int j = altura / 2; j >= i; j--) {  // Espaços à esquerda
                     System.out.print(" ");
                 }
                 // Asteriscos
-                for (int j = 1; j <= (2 * i - 1); j++) {
+                for (int j = 1; j <= (2 * i - 1); j++) { // Asteriscos
                     System.out.print("*");
                 }
                 System.out.println();

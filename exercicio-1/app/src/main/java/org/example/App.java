@@ -11,13 +11,14 @@ public class App {
 
         if (args.length == 3) {
 
-            // fazer quadrado9
-            int quadradolargura = Integer.parseInt(args[1]);
-            int quadradoaltura = Integer.parseInt(args[2]);
+            // fazer retangulo
+            int retangulolargura = Integer.parseInt(args[1]);
+            int retanguloltura = Integer.parseInt(args[2]);
 
-            for (int i = 0; i < quadradoaltura; i++) {
-                for (int j = 0; j < quadradoaltura; j++) {
-                    if (i == 0 || i == quadradoaltura - 1 || j == 0 || j == quadradolargura - 1) {
+            for (int i = 1; i <= retanguloltura; i++) {
+
+                for (int j = 1; j <= retangulolargura; j++) {
+                    if (i == 1 || i == retanguloltura || j == 1 || j == retangulolargura) {
                         System.out.print("*");
                     } else {
                         System.out.print(" ");
@@ -29,29 +30,41 @@ public class App {
         } else if (args.length > 3 || args.length < 2) {
             System.out.println("Tamanho do vetor incorreto");
         } else if (formaGeometrica.equals("triangulo")) {
+
             // fazer triangulo
             int altura = Integer.parseInt(args[1]);
-            for (int i = 1; i <= altura; i++)
+
+            for (int i = 1; i <= altura; i++) {
+
+                for (int j = altura; j >= i; j--) {
+                    System.out.print(" ");
+                }
+
                 for (int j = 1; j <= i; j++) {
                     System.out.print("*");
                 }
-            System.out.println();
-        } else {
+
+                System.out.println();
+            }
+        }
+
+        else {
 
             // fazer losango
             int altura = Integer.parseInt(args[1]);
-            //parte superior
+
             for (int i = 1; i <= altura / 2 + 1; i++) {
+
                 for (int j = i; j <= altura / 2; j++) {
                     System.out.print(" ");
                 }
+
                 for (int j = 1; j <= (2 * i - 1); j++) {
                     System.out.print("*");
                 }
 
                 System.out.println();
             }
-            // Parte inferior
             for (int i = altura / 2; i >= 1; i--) {
                 // Espaços à esquerda
                 for (int j = altura / 2; j >= i; j--) {
@@ -61,6 +74,7 @@ public class App {
                 for (int j = 1; j <= (2 * i - 1); j++) {
                     System.out.print("*");
                 }
+                System.out.println();
             }
         }
     }

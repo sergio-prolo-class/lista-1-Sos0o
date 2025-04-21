@@ -1,4 +1,4 @@
-package org.example;
+package BatalhaNaval;
 
 import java.util.Random;
 
